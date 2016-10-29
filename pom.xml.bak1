@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>z1f.study.jaxb1</groupId>
+	<artifactId>study-jaxb_1_x</artifactId>
+	<version>0.0.1</version>
+	
+
+	
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<build>
+		<plugins>
+	        <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<id>schemagen</id>
+						<goals>
+							<goal>schemagen</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!--
+					<outputDirectory>${project.build.directory}/schemas</outputDirectory>
+					-->
+					<!--这个属性是必填的，而且必须放在这个路径下面：plugin-configuration-includes-->
+					<includes>
+						<include>z1f/study/jaxb1/*.java</include>
+					</includes>
+					
+				</configuration>
+			</plugin>
+			
+			
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!--这个属性是必填的，要不然会报错：No schemas have been found-->
+					<schemaDirectory>${project.basedir}/src/main/resources/schemas</schemaDirectory>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+</project>
