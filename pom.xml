@@ -40,11 +40,11 @@
 					<!--
 					<outputDirectory>${project.build.directory}/schemas</outputDirectory>
 					-->
-					<!--这个属性是必填的，而且必须放在这个路径下面：plugin-configuration-includes-->
+					<!--这个属性是必填的，要不然执行schemagen命令时，会报错：“找不到includes入参”。而且必须放在这个路径下面：plugin-configuration-includes-->
 					<includes>
 						<include>z1f/study/jaxb1/*.java</include>
 					</includes>
-					<!--这个属性是必填的，要不然会报错：No schemas have been found-->
+					<!--这个属性是必填的，要不然执行xjc命令时，会报错：No schemas have been found-->
 					<schemaDirectory>${project.basedir}/src/main/resources/schemas</schemaDirectory>
 				</configuration>
 			</plugin>	
