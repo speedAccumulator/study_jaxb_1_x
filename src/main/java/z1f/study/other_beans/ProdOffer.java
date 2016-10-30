@@ -1,7 +1,13 @@
 package z1f.study.other_beans;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlElementWrapper; 
 
-@XmlType(namespace = "http://some/namespace",propOrder = {"prodOfferId", "getProdOfferName"})
+@XmlType(namespace = "http://some/namespace",propOrder = {"prodOfferId", "prodOfferName"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ProdOffer { 
 	
